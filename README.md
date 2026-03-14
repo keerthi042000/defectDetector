@@ -70,12 +70,6 @@ Issue: Major structural defect detected
 Confidence: 41%
 ```
 
-## Notes About The Current Model
-
-- The included detector already works for defect localization.
-- `Good Quality` is inferred when no defect boxes are detected.
-- The original notebook contains a label-mapping bug that routes some defect types into class `2`. In this implementation, class `2` is treated conservatively as `Major Defect` during report generation.
-
 ## Edge Deployment
 
 This model is a good fit for edge devices because it already uses a compact YOLO backbone. A production edge path would be:
@@ -86,8 +80,3 @@ This model is a good fit for edge devices because it already uses a compact YOLO
 4. Deploy on Jetson, industrial PCs, or ARM devices with a lightweight Python or C++ runtime.
 5. Send only the final report and cropped defect metadata to the cloud, not every raw frame.
 
-## Suggested GitHub Submission
-
-- Push the code, `README.md`, and lightweight model assets.
-- Avoid committing large raw datasets unless using Git LFS.
-- Share the repo link with `vivek@corseco.tech`.
