@@ -1,0 +1,8 @@
+path: dataset_yolo
+
+train: images/train
+val: images/val
+
+names:
+  0: minor_defect
+  1: major_defect
