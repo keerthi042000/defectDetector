@@ -8,7 +8,7 @@ Simple AI-powered quality inspection for product images using a YOLO detector. T
 - Classifies inspection quality into `Good Quality`, `Minor Defect`, or `Major Defect`.
 - Saves annotated images with defect bounding boxes.
 - Produces a machine-readable `report.json`.
-- Optionally uses a local open-source LLM to turn structured findings into a short 3-line inspection report.
+- Uses a local open-source LLM to turn structured findings into a short 3-line inspection report.
 
 ## Project Files
 
@@ -42,13 +42,7 @@ python3 quality_inspector.py \
   --product-id capsule_batch
 ```
 
-Inspect every image in a folder:
-
-```bash
-python3 quality_inspector.py dataset_yolo/images/val --product-id val_batch
-```
-
-Optional open-source LLM report generation:
+Open-source LLM report generation:
 
 ```bash
 export HF_REPORT_MODEL=google/flan-t5-base
@@ -78,5 +72,3 @@ This model is a good fit for edge devices because it already uses a compact YOLO
 2. Run batch size `1` at a fixed image size such as `640x640`.
 3. Quantize to `FP16` or `INT8` to reduce latency and memory.
 4. Deploy on Jetson, industrial PCs, or ARM devices with a lightweight Python or C++ runtime.
-5. Send only the final report and cropped defect metadata to the cloud, not every raw frame.
-
